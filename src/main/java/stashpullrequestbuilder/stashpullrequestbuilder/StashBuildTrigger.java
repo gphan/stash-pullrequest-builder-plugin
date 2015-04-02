@@ -122,6 +122,7 @@ public class StashBuildTrigger extends Trigger<AbstractProject<?, ?>> {
     public QueueTaskFuture<?> startJob(StashCause cause) {
         Map<String, ParameterValue> values = new HashMap<String, ParameterValue>();
         values.put("sourceBranch", new StringParameterValue("sourceBranch", cause.getSourceBranch()));
+        values.put("sourceHash", new StringParameterValue("sourceHash", cause.getSourceCommitHash()));
         values.put("targetBranch", new StringParameterValue("targetBranch", cause.getTargetBranch()));
         values.put("projectCode", new StringParameterValue("projectCode", cause.getRepositoryOwner()));
         values.put("repositoryName", new StringParameterValue("repositoryName", cause.getRepositoryName()));
